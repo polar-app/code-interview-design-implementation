@@ -1,25 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Button from '@material-ui/core/Button';
+import {BrowserRouter, Route, Switch} from "react-router-dom";
+import { Link as RouterLink } from 'react-router-dom';
+import CreateRepository from "./CreateRepository";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div style={{padding: '10px'}}>
+          <CssBaseline/>
+
+          <BrowserRouter>
+
+              <h1>
+                  Let's implement the following components:
+              </h1>
+
+
+              <Button  variant="contained" color="primary" component={RouterLink} to="/create-repository">
+                  Create Repository
+              </Button>
+
+              <Switch>
+
+                  <Route exact path="/create-repository">
+                      <CreateRepository/>
+                  </Route>
+
+              </Switch>
+          </BrowserRouter>
+
+      </div>
   );
 }
 
